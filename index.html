@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIVIC EYE – Login</title>
+  
+  <link rel="stylesheet" href="style.css"/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <svg id="background-chakra" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="-10 -10 20 20" fill="#06038d">
+    <title>Ashoka Chakra</title>
+    <circle fill="none" stroke="#06038d" r="8.625" stroke-width="1.25"/>
+    <circle r="1.6"/>
+    <g id="d"><g id="c"><g id="b"><g id="a"><path d="m0-8 .3 4.81409L0-.80235-.3-3.18591z"/><circle transform="rotate(7.5)" r="0.35" cy="-8"/></g><use xlink:href="#a" transform="scale(-1)"/></g><use xlink:href="#b" transform="rotate(15)"/></g><use xlink:href="#c" transform="rotate(30)"/></g>
+    <use xlink:href="#d" transform="rotate(60)"/><use xlink:href="#d" transform="rotate(120)"/>
+  </svg>
+
+  <header>
+    <img src="logo.png" alt="Civic Eye Logo" class="header-logo">
+    <h1>CIVIC EYE</h1>
+    <p>Empowering Citizens for a Better Nation</p>
+    <div class="quote" id="quote-display"></div>
+  </header>
+
+  <div class="dashboard-section">
+    <h2 style="font-size: 1.5rem; text-align:center;">Login</h2>
+    <div class="input-group">
+      <label for="loginRole">Select Your Role</label>
+      <select id="loginRole">
+        <option value="Citizen">Citizen</option>
+        <option value="Authorized User">Authorized User</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" placeholder="Enter your email" required>
+    </div>
+    <div class="input-group">
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" placeholder="Enter your password" required>
+    </div>
+    <button id="loginBtn">Login</button>
+    <p style="text-align:center; font-size: 0.9rem; margin-top: 15px;">New citizen? <a href="signup.html">Create an account</a></p>
+    <p style="text-align:center; font-size: 0.9rem; margin-top: 10px;"><a href="contact.html">Contact Us & Map</a></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025-26 Smart India Hackathon. All rights reserved.</p>
+    <p>Team CodeForge | Contact: 8075185774, 8848081237</p>
+  </footer>
+
+  <script type="module">
+    import { auth, db } from "./firebase-config.js";
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    
+    // Your Firebase login logic...
+    document.getElementById("loginBtn").addEventListener("click", async (event) => {
+        // ...
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const quotes = [
+        { text: "Every citizen of India must remember that he is an Indian and he has every right in this country but with certain duties.", author: "Sardar Vallabhbhai Patel" },
+        { text: "Arise, awake, and stop not till the goal is reached.", author: "Swami Vivekananda" },
+        { text: "The future depends on what you do today.", author: "Mahatma Gandhi" }
+      ];
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      const quoteElement = document.getElementById('quote-display');
+      if (quoteElement) {
+        quoteElement.innerHTML = `“${randomQuote.text}”<br>– ${randomQuote.author}`;
+      }
+    });
+  </script>
+
+</body>
+</html>
