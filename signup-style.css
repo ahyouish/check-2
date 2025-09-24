@@ -1,0 +1,154 @@
+/* --- Universal Styles --- */
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(135deg, #FF9933, #FFFFFF, #138808);
+  color: #333;
+  position: relative;
+  overflow-y: auto; /* Allows scrolling */
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* --- Default Mobile Styles --- */
+body {
+    padding: 2vh 10px;
+}
+
+#background-chakra {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 80vw;
+  opacity: 0.05;
+  z-index: -1;
+  animation: spin 60s linear infinite;
+}
+
+/* --- Simplified Header for Signup Page --- */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0d5c05;
+    margin: 0;
+}
+
+/* --- Form Container Styles (from login page) --- */
+.dashboard-section {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 90%;
+}
+
+.dashboard-section a {
+    color: #138808;
+    font-weight: 600;
+    text-decoration: none;
+}
+.dashboard-section a:hover {
+    text-decoration: underline;
+}
+
+.input-group { 
+    margin-bottom: 15px; 
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #138808;
+    box-shadow: 0 0 0 3px rgba(19, 136, 8, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(45deg, #138808, #18a50a);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover { 
+    transform: scale(1.02);
+}
+
+
+/* --- Styles for Tablets and Desktops --- */
+@media (min-width: 601px) {
+  body {
+    padding-top: 5vh;
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .dashboard-section {
+    max-width: 400px;
+    padding: 25px;
+  }
+  
+  #background-chakra {
+      width: 50vw;
+      height: 50vw;
+  }
+}
+
+/* --- Footer Styles (from login page) --- */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto; /* Pushes the footer to the bottom */
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: 5px 0;
+}
